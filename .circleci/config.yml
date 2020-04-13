@@ -19,8 +19,8 @@ jobs:
       - run:
         name: unit tests
         command: |
-        mkdir -p test-output
-        npm run test-unit
+         mkdir -p test-output
+         npm run test-unit
           
 workflows:
     build-and-packaging:
