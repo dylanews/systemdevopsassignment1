@@ -3,9 +3,8 @@ commands:
   install_deps:
     steps:
       - name: Install dependencies
-        run:
-          command: |
-            npm install
+        run: | 
+          npm install
 
 jobs:
   ci-build:
