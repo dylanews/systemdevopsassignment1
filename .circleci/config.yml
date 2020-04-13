@@ -12,15 +12,22 @@ jobs:
     docker:
       -image: circleci/node:lts
       environment:
-        NODE_ENV: test-output
+        MOCHA_JUNIT_OUTPUT_DIR: test-output
     steps:
       - checkout
       - install_deps
+      - run:
+        name: run eslint
+        command: npm run eslint
+        
       - run:
         name: unit tests
         command: |
          mkdir -p test-output
          npm run test-unit
+
+      - store_test_results:
+        path: test-output
           
 workflows:
     build-and-packaging:
