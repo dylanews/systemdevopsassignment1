@@ -17,6 +17,9 @@ jobs:
       - checkout
       - install_deps
       - run:
+          name: Run eslint
+          command: npm run lint
+      - run:
           name: unit tests
           command: |
             mkdir -p test-output
