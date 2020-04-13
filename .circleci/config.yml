@@ -18,7 +18,8 @@ jobs:
       - install_deps
       - run:
         name: run eslint
-        command: npm run eslint
+        command: |
+          npm run eslint
         
       - run:
         name: unit tests
