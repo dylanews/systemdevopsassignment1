@@ -1,6 +1,8 @@
 {
   "name": "rmit-app",
   "version": "0.0.0",
+  "author": "Eng Wen Shing",
+  "repository": "https://github.com/s3699661/systemdevopsassignment1",
   "private": true,
   "scripts": {
     "start": "cross-env DEBUG=express-sequelize node ./bin/www",
