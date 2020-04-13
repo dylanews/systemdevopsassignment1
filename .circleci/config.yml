@@ -4,15 +4,15 @@ commands:
     steps:
       - run:
           name: Install dependencies
-          command: |
-            npm install
+          command: npm install
+            
 
 jobs:
   ci-build:
     docker:
       - image: circleci/node:lts
-          environment:
-            MOCHA_JUNIT_OUTPUT_DIR: test-outputs
+    environment: 
+      MOCHA_JUNIT_OUTPUT_DIR: test-outputs
     steps:
       - checkout
       - install_deps
