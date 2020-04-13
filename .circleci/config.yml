@@ -2,8 +2,9 @@ version: 2.1
 commands:
   install_deps:
     steps:
-      - name: Install dependencies
-        run: | 
+      - run:
+        name: Install dependencies
+        command: |
           npm install
 
 jobs:
@@ -16,16 +17,10 @@ jobs:
       - checkout
       - install_deps
       - run:
-        name: run eslint
-        command: |
-          npm run eslint
-        
-      - run:
         name: unit tests
         command: |
          mkdir -p test-output
          npm run test-unit
-
       - store_test_results:
         path: test-output
           
