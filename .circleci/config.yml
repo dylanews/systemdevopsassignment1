@@ -5,7 +5,7 @@ commands:
       - run:
           name: Install dependencies
           command: |
-          npm install
+            npm install
 
 jobs:
   ci-build:
@@ -19,8 +19,8 @@ jobs:
       - run:
           name: unit tests
           command: |
-          mkdir -p test-output
-          npm run test-unit
+            mkdir -p test-output
+            npm run test-unit
       - store_test_results:
           path: test-output
           
