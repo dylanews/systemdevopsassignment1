@@ -1,6 +1,8 @@
 {
   "name": "rmit-app",
   "version": "0.0.0",
+  "author": "Eng Wen Shing",
+  "description":"Assignment 1 System Deployment and Operations",
   "private": true,
   "scripts": {
     "start": "cross-env DEBUG=express-sequelize node ./bin/www",
