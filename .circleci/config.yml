@@ -1,17 +1,33 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
+commands:
+  install_deps:
+    steps:
+      - run:
+          name: Install dependencies
+          command: npm install
+            
+
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
+  ci-build:
+    docker:
+      - image: circleci/node:lts
+    environment: 
+      MOCHA_JUNIT_OUTPUT_DIR: test-output
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - install_deps
+      - run:
+          name: Run eslint
+          command: npm run test-lint
+      - run:
+          name: unit tests
+          command: |
+            mkdir -p test-output
+            npm run test-unit
+      - store_test_results:
+          path: test-output
+          
 workflows:
-    build-and-test:
+    build-and-packaging:
       jobs:
-        - build-and-test
+        - ci-build
