@@ -29,7 +29,8 @@ jobs:
       - run:
           name: Validate coverage nyc
           command: |
-            npm run test-coverage
+            npm install
+            nyc run test-coverage
       - store_test_results:
           path: test-output
           
