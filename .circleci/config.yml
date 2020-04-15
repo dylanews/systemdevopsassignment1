@@ -21,6 +21,7 @@ jobs:
           name: running reporter
           command: |
             npm install mocha-junit-reporter
+            npm run mocha-junit-reporter
 
       - run:
           name: unit tests
@@ -35,13 +36,13 @@ jobs:
       - run:
           name: run code-coverage
           command: |
-            nyx nyc --reporter=lcov npm test && npx codecov
+            npm run test-coverage
             
       - store_test_results:
           path: test-output
 
       - store_artifacts:
-          path: ./assignment1devops/src/test.output.xml
+          path: ./
           
 workflows:
     build-and-packaging:
