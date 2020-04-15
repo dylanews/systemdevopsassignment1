@@ -21,7 +21,7 @@ jobs:
           name: running reporter
           command: |
             npm install mocha-junit-reporter
-            npm run mocha-junit-reporter
+            npm run test-reporter
 
       - run:
           name: unit tests
@@ -41,8 +41,19 @@ jobs:
       - store_test_results:
           path: test-output
 
-      - store_artifacts:
-          path: ./
+pack:
+  docker:
+    -image: circleci/nodelts
+  environment:
+    NODE_ENV: production
+  steps:
+    - checkout
+    - install_deps
+    - run: |
+        mkdir -p dist
+        zip -r dist/dist.zip src/
+    - store_artifacts:
+        path: dist/dist.zip
           
 workflows:
     build-and-packaging:
