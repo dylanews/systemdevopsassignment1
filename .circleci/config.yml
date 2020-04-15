@@ -35,8 +35,7 @@ jobs:
       - run:
           name: run code-coverage
           command: |
-            npm install nyc
-            nyc run test-coverage
+            nyx nyc --reporter=lcov npm test && npx codecov
             
       - store_test_results:
           path: test-output
