@@ -19,7 +19,9 @@ jobs:
 
       - run:
           name: running reporter
-          command: npm install mocha-junit-reporter
+          command: |
+            npm install mocha-junit-reporter
+            npm run mocha-junit-reporter
 
       - run:
           name: unit tests
