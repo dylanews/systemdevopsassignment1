@@ -19,19 +19,24 @@ jobs:
       - run:
           name: running reporter
           command: |
+            cd src
             npm install mocha-junit-reporter
       - run:
           name: unit tests
           command: |
+            cd src
             mkdir -p test-output
             npm run test-unit
       - run:
           name: Run eslint
-          command: npm run test-lint
+          command: |
+            npm run test-lint
       - run:
           name: run code-coverage
           command: |
+            cd src
             npm run test-coverage
+            mkdir -p test-results
             
       - store_test_results:
           path: test-output
@@ -53,3 +58,10 @@ workflows:
     build-and-packaging:
       jobs:
         - ci-build
+        - pack:
+            requires:
+              -ci-build
+            filters:
+              branches:
+                only:
+                  - master
