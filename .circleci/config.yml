@@ -59,9 +59,9 @@ workflows:
       jobs:
         - ci-build
         - pack:
-            requires:
-              -ci-build
-            filters:
-              branches:
-                only:
-                  - master
+          requires:
+            - ci-build
+          filters:
+            branches:
+              only:
+                - master
