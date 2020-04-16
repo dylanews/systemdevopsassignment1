@@ -16,22 +16,18 @@ jobs:
     steps:
       - checkout
       - install_deps
-
       - run:
           name: running reporter
           command: |
             npm install mocha-junit-reporter
-
       - run:
           name: unit tests
           command: |
             mkdir -p test-output
             npm run test-unit
-
       - run:
           name: Run eslint
           command: npm run test-lint
-
       - run:
           name: run code-coverage
           command: |
@@ -39,7 +35,6 @@ jobs:
             
       - store_test_results:
           path: test-output
-
 pack:
   docker:
     -image: circleci/nodelts
