@@ -17,15 +17,37 @@ jobs:
       - checkout
       - install_deps
       - run:
-          name: Run eslint
-          command: npm run test-lint
+          name: running reporter
+          command: |
+            npm install mocha-junit-reporter
       - run:
           name: unit tests
           command: |
             mkdir -p test-output
             npm run test-unit
+      - run:
+          name: Run eslint
+          command: npm run test-lint
+      - run:
+          name: run code-coverage
+          command: |
+            npm run test-coverage
+            
       - store_test_results:
           path: test-output
+pack:
+  docker:
+    -image: circleci/nodelts
+  environment:
+    NODE_ENV: production
+  steps:
+    - checkout
+    - install_deps
+    - run: |
+        mkdir -p dist
+        zip -r dist/dist.zip src/
+    - store_artifacts:
+        path: dist/dist.zip
           
 workflows:
     build-and-packaging:
