@@ -55,10 +55,10 @@ pack:
         path: dist/dist.zip
           
 workflows:
-    build-and-packaging:
-      jobs:
-        - ci-build
-        - pack:
+  build-and-packge:
+    jobs:
+      - ci-build
+      - pack:
           requires:
             - ci-build
           filters:
