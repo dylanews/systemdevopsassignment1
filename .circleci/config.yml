@@ -1,12 +1,4 @@
 version: 2.1
-commands:
-  install_deps:
-    steps:
-      - run:
-          name: Install dependencies
-          command: npm install
-            
-
 jobs:
   ci-build:
     docker:
