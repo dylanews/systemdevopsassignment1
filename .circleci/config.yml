@@ -48,9 +48,11 @@ jobs:
     steps:
       - checkout
       - install_deps
-      - run: |
-          mkdir -p dist
-          zip -r dist/dist.zip src/
+      - run:
+          name: create directory and zip
+          command: |
+            mkdir -p dist
+            zip -r dist/dist.zip src/
       - store_artifacts:
           path: dist/dist.zip
           
