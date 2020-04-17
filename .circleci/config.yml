@@ -11,8 +11,6 @@ jobs:
   ci-build:
     docker:
       - image: circleci/node:lts
-    environment: 
-      MOCHA_JUNIT_OUTPUT_DIR: test-output
     steps:
       - checkout
       - run:
