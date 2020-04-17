@@ -15,31 +15,30 @@ jobs:
       MOCHA_JUNIT_OUTPUT_DIR: test-output
     steps:
       - checkout
-      - install_deps
       - run:
           name: running reporter
           command: |
             cd src
-            npm install mocha-junit-reporter
-      - run:
-          name: unit tests
-          command: |
-            cd src
-            mkdir -p test-output
-            npm run test-unit
+            npm install
       - run:
           name: Run eslint
           command: |
             npm run test-lint
       - run:
+          name: unit tests
+          command: |
+            cd src
+            npm run test-unit
+      - run:
           name: run code-coverage
           command: |
             cd src
             npm run test-coverage
-            mkdir -p test-results
+            mkdir -p test-results/unit
+            mv test-results.xml testresults/unit/results.xml
             
       - store_test_results:
-          path: test-output
+          path: src/test-results
   pack:
     docker:
       -image: circleci/nodelts
@@ -47,14 +46,18 @@ jobs:
       NODE_ENV: production
     steps:
       - checkout
-      - install_deps
+      - run:
+          name: install deps
+          command: |
+            cd src
+            npm install    
       - run:
           name: create directory and zip
           command: |
             mkdir -p dist
-            zip -r dist/dist.zip src/
+            zip -r dist/src.zip src/
       - store_artifacts:
-          path: dist/dist.zip
+          path: dist
           
 workflows:
   build-and-packge:
