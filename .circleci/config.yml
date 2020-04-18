@@ -46,9 +46,8 @@ jobs:
           command: |
             npm run test-integration
             mkdir -p test-output/test-integration
-      - store_test_output:
-          path: test-output.xml
-          
+      - store_test_results:
+          path: test-output.xml         
   pack:
     docker:
       - image: circleci/node:lts
