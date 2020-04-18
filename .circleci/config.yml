@@ -50,7 +50,7 @@ jobs:
           path: test-result.xml      
   e2e:
     docker:
-      - image: circleci/node:lts
+      - image: circleci/node:lts-browsers
         environment:
           QAW_HEADLESS: true
           QAW_ARTIFACT_PATH: tmp/artifacts
