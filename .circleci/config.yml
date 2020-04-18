@@ -21,10 +21,12 @@ jobs:
           name: run code-coverage
           command: |
             npm run test-coverage
-            mkdir -p test-results/test-unit
             
       - store_test_results:
-          path: test-results.xml
+          path: test-output
+
+      - store_artifacts:
+          path: test-output/test-result.xml
 
   integration-tests:
     docker:
@@ -47,7 +49,10 @@ jobs:
             npm run test-integration
             mkdir -p test-results/test-integration
       - store_test_results:
-          path: test-results.xml
+          path: test-output
+
+      - store_artifacts:
+          path: test-output/test-integration.xml
           
   e2e:
     docker:
@@ -75,7 +80,10 @@ jobs:
             mkdir -p test-results/test-e2e
 
       - store_test_results:
-          path: test-results.xml                
+          path: test-output
+          
+      - store_artifacts:
+          path: test-output/test-e2e.xml
   pack:
     docker:
       - image: circleci/node:lts

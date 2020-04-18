@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="2.0030" tests="3" failures="1">
-  <testsuite name="Root Suite" timestamp="2020-04-18T12:38:04" tests="0" time="0.0000" failures="0">
+<testsuites name="Mocha Tests" time="2.0070" tests="3" failures="1">
+  <testsuite name="Root Suite" timestamp="2020-04-18T13:34:07" tests="0" time="0.0000" failures="0">
   </testsuite>
-  <testsuite name="user creation page" timestamp="2020-04-18T12:38:04" tests="3" file="C:\Users\Dylan\Desktop\assignment1devops\test\integration\user-creation.test.js" time="2.0030" failures="1">
-    <testcase name="user creation page &quot;before all&quot; hook" time="2.0030" classname="&quot;before all&quot; hook">
+  <testsuite name="user creation page" timestamp="2020-04-18T13:34:07" tests="3" file="C:\Users\Dylan\Desktop\assignment1devops\test\integration\user-creation.test.js" time="2.0070" failures="1">
+    <testcase name="user creation page &quot;before all&quot; hook" time="2.0070" classname="&quot;before all&quot; hook">
       <failure message="Timeout of 2000ms exceeded. For async tests and hooks, ensure &quot;done()&quot; is called; if returning a Promise, ensure it resolves." type="Error"><![CDATA[Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves.
     at listOnTimeout (internal/timers.js:536:17)
     at processTimers (internal/timers.js:480:7)]]></failure>
