@@ -43,11 +43,10 @@ jobs:
       - run:
           name: Run integration tests
           command: |
-            mkdir -p test-output/test-unit
             npm run test-integration
-
+            mkdir -p test-output/test-integration
       - store_test_results:
-          path: test-output
+          path: test-output.xml
           
   pack:
     docker:
