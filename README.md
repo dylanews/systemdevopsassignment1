@@ -26,7 +26,7 @@ Running Tests - Unit Tests:
 - In this project, As there was on specific javascript testing framework that has been mentioned in the script apart from the cross-env and the node-env. Therefore, I have added in an additional mocha/unit-test to specify and to apply the mocha testing framework to the application. In config.yml i have also specified the use of mocha unit-testing framework to test the application.
 
 Code Coverage:
-- The code coverage is used to report and to notify the users when any problems were to occur. For this pipeline, i have added the use of the nyc istanbul reporter allowing the application to be able to notify when any problems were to occur. With this, i have also added a reporter which would display the errors from the code-coverage to the users if any problems were to arise.
+- The code coverage is used to report and to notify the users when any problems were to occur. For this pipeline, i have added the use of the nyc istanbul reporter allowing the application to be able to notify when any problems were to occur. With this, i have also added a reporter which would display the errors to the code-coverage to the users if any problems were to arise.
 
 Linting:
 - As mentioned above, in the script folder there was no lint framework specified. To solve this problem, I have attached Eslint as the framework and ./ allowing it to be able to perform through the whole directory. 
