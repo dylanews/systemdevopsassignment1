@@ -41,9 +41,9 @@ jobs:
           name: create directory and zip
           command: |
             mkdir -p dist
-            zip -r dist/src.zip -i src/
+            zip -r dist/dist.zip src/
       - store_artifacts:
-          path: dist
+          path: dist/dist.zip
           
 workflows:
   build-and-packge:
