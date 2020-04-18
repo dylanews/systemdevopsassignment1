@@ -104,6 +104,11 @@ workflows:
             - ci-build
             - integration-tests
       - pack:
+          requires:
+            - integration-tests
+            - ci-build
+            - e2e
           filters:
             branches:
-              only: master
+              only:
+                - master
