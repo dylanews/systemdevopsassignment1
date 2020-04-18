@@ -25,6 +25,31 @@ jobs:
             
       - store_test_results:
           path: test-results.xml
+
+  integration-tests:
+    docker:
+      - image: circleci/node:lts
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_DB: servian
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOSTNAME: localhost
+      APP_PORT: 4000
+    steps:
+      - checkout
+      - run:
+        name: installing all deps
+          command: |
+            npm install
+      - run:
+          name: Run integration tests
+          command: |
+            mkdir -p test-output/test-unit
+            npm run test-integration
+
+      - store_test_results:
+          path: test-output
+          
   pack:
     docker:
       - image: circleci/node:lts
