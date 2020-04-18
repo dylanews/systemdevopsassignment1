@@ -20,7 +20,7 @@ jobs:
       - run:
           name: run code-coverage
           command: |
-            npm run test-coverage
+            nyc run test-coverage
             mkdir -p test-results/unit
             mv test-results.xml testresults/unit/test-results.xml
             
