@@ -21,7 +21,7 @@ jobs:
           name: run code-coverage
           command: |
             npm run test-coverage
-            mkdir -p test-results/unit
+            mkdir -p test-results/test-unit
             
       - store_test_results:
           path: test-results.xml
