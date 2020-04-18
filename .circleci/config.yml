@@ -30,16 +30,18 @@ jobs:
     docker:
       - image: circleci/node:lts
       - image: circleci/postgres:9.6-alpine
-    environment:
-      POSTGRES_USERNAME: postgres
-      POSTGRES_DB: servian
-      POSTGRES_PASSWORD: password
-      POSTGRES_HOSTNAME: localhost
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: servian
+          POSTGRES_PASSWORD: password
     steps:
       - checkout
       - run:
-          name: installing all deps
-          command: npm install
+          name: installing all deps and migrate
+          command: |
+            npm install
+            node_modules/.bin/sequelize db:migrate
+            npm start
       - run:
           name: Run integration tests
           command: |
@@ -71,7 +73,9 @@ workflows:
   build-and-packge:
     jobs:
       - ci-build
-      - integration-tests
+      - integration-tests:
+          requires:
+            - ci-build
       - pack:
           filters:
             branches:
