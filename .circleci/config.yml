@@ -8,6 +8,7 @@ jobs:
       - run:
           name: installing all deps
           command: |
+            cd src
             npm install
       - run:
           name: Run eslint
@@ -20,9 +21,8 @@ jobs:
       - run:
           name: run code-coverage
           command: |
-            nyc run test-coverage
+            npm run test-coverage
             mkdir -p test-results/unit
-            mv test-results.xml testresults/unit/test-results.xml
             
       - store_test_results:
           path: src/test-results
