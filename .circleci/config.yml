@@ -22,7 +22,7 @@ jobs:
           command: |
             npm run test-coverage
             mkdir -p test-results/unit
-            mv test-results.xml testresults/unit/results.xml
+            mv test-results.xml testresults/unit/test-results.xml
             
       - store_test_results:
           path: src/test-results
@@ -43,7 +43,7 @@ jobs:
             mkdir -p dist
             zip -r dist/dist.zip
       - store_artifacts:
-          path: dist/dist.zip
+          path: dist
           
 workflows:
   build-and-packge:
