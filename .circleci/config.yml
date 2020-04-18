@@ -68,8 +68,7 @@ jobs:
       - run:
           name: Run e2e
           command: |
-            npm run start:prod & 
-            npx wait-on http://localhost:3000
+            npm run start:prod & npx wait-on http://localhost:3000
             npm run test-e2e
             mkdir -p test-result/e2e
       - store_test_results:
