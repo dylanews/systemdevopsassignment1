@@ -16,12 +16,10 @@ jobs:
       - run:
           name: unit tests
           command: |
-            cd src
             npm run test-unit
       - run:
           name: run code-coverage
           command: |
-            cd src
             npm run test-coverage
             mkdir -p test-results/unit
             mv test-results.xml testresults/unit/results.xml
@@ -43,7 +41,7 @@ jobs:
           name: create directory and zip
           command: |
             mkdir -p dist
-            zip -r dist/src.zip src/
+            zip -r dist/src.zip -i src/
       - store_artifacts:
           path: dist
           
