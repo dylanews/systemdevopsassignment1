@@ -24,7 +24,7 @@ jobs:
             mkdir -p test-results/unit
             
       - store_test_results:
-          path: src/test-results.xml
+          path: assignment1devops/test-results.xml
   pack:
     docker:
       - image: circleci/node:lts
