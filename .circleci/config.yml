@@ -40,7 +40,7 @@ jobs:
           name: create directory and zip
           command: |
             mkdir -p dist
-            zip -r dist/dist.zip ./
+            zip -r dist ./
       - store_artifacts:
           path: dist.zip
           
