@@ -47,7 +47,6 @@ jobs:
           name: Run integration tests
           command: |
             npm run test-integration
-            mkdir -p test-results/test-integration
       - store_test_results:
           path: test-output
 
@@ -74,10 +73,7 @@ jobs:
       - run:
           name: Run e2e
           command: |
-            npm run start:prod & 
-            npx wait-on http://localhost:3000
             npm run test-e2e
-            mkdir -p test-results/test-e2e
 
       - store_test_results:
           path: test-output
