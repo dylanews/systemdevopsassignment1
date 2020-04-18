@@ -38,9 +38,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: installing all deps
-          command: |
-            npm install
+          name: installing all deps
+          command: npm install
       - run:
           name: Run integration tests
           command: |
