@@ -49,9 +49,12 @@ jobs:
       - store_test_results:
           path: test-output.xml
           
-   e2e:
+  e2e:
     docker:
-      - image: circleci/node:lts
+      - image: circleci/node:lts-browsers
+        environment:
+          QAW_HEADLESS: true
+          QAW_ARTIFACT_PATH: tmp/artifacts
       - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: postgres
