@@ -100,7 +100,7 @@ workflows:
           requires:
             - ci-build
       - e2e
-            requires:
+          requires:
             - ci-build
             - integration-tests
       - pack:
