@@ -21,10 +21,10 @@ jobs:
           name: run code-coverage
           command: |
             npm run test-coverage
-            mkdir -p test-results/unit
+            mkdir -p test-result/unit
             
       - store_test_results:
-          path: ./testresults.xml
+          path: test-results.xml
 
   integration-tests:
     docker:
@@ -45,9 +45,9 @@ jobs:
           name: Run integration tests
           command: |
             npm run test-integration
-            mkdir  -p test-results/integration.xml
+            mkdir  -p test-output/integration
       - store_test_results:
-          path: ./test-results.xml          
+          path: test-output.xml      
   e2e:
     docker:
       - image: circleci/node:lts
@@ -68,13 +68,12 @@ jobs:
       - run:
           name: Run e2e
           command: |
-            npm init qawolf
             npm run start:prod & 
             npx wait-on http://localhost:3000
             npm run test-e2e
-            mkdir -p test-results/e2e
+            mkdir -p test-outcome/e2e
       - store_test_results:
-          path: ./test-results.xml
+          path: test-outcome.xml
          
   pack:
     docker:
