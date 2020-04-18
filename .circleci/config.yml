@@ -45,9 +45,9 @@ jobs:
           name: Run integration tests
           command: |
             npm run test-integration
-            mkdir  -p test-output/integration
+            mkdir  -p test-result/integration
       - store_test_results:
-          path: test-output.xml      
+          path: test-result.xml      
   e2e:
     docker:
       - image: circleci/node:lts
@@ -71,9 +71,9 @@ jobs:
             npm run start:prod & 
             npx wait-on http://localhost:3000
             npm run test-e2e
-            mkdir -p test-outcome/e2e
+            mkdir -p test-result/e2e
       - store_test_results:
-          path: test-outcome.xml
+          path: test-result.xml
          
   pack:
     docker:
