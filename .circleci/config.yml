@@ -21,12 +21,10 @@ jobs:
           name: run code-coverage
           command: |
             npm run test-coverage
+            mkdir -p test-results/unit
             
       - store_test_results:
-          path: test-output
-
-      - store_artifacts:
-          path: test-output
+          path: ./testresults.xml
 
   integration-tests:
     docker:
@@ -47,14 +45,12 @@ jobs:
           name: Run integration tests
           command: |
             npm run test-integration
+            mkdir  -p test-results/integration.xml
       - store_test_results:
-          path: test-output
-      - store_artifacts:
-          path: test-output
-          
+          path: ./test-results.xml          
   e2e:
     docker:
-      - image: circleci/node:lts-browsers
+      - image: circleci/node:lts
         environment:
           QAW_HEADLESS: true
           QAW_ARTIFACT_PATH: tmp/artifacts
@@ -71,12 +67,15 @@ jobs:
             npm install
       - run:
           name: Run e2e
-          command: npm run test-e2e
-
+          command: |
+            npm init qawolf
+            npm run start:prod & 
+            npx wait-on http://localhost:3000
+            npm run test-e2e
+            mkdir -p test-results/e2e
       - store_test_results:
-          path: test-output
-      - store_artifacts:
-          path: test-output                
+          path: ./test-results.xml
+         
   pack:
     docker:
       - image: circleci/node:lts
