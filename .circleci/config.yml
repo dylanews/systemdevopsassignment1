@@ -47,7 +47,32 @@ jobs:
             npm run test-integration
             mkdir -p test-output/test-integration
       - store_test_results:
-          path: test-output.xml         
+          path: test-output.xml
+          
+   e2e:
+    docker:
+      - image: circleci/node:lts
+      - image: circleci/postgres:9.6-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: servian
+          POSTGRES_PASSWORD: password
+    steps:
+      - checkout
+      - run:
+          name: installing deps
+          command: |
+            npm install
+      - run:
+          name: Run e2e
+          command: |
+            npm run start:prod & 
+            npx wait-on http://localhost:3000
+            npm run test-e2e
+            mkdir -p test-output/test-e2e
+
+      - store_test_results:
+          path: test-e2e.xml                
   pack:
     docker:
       - image: circleci/node:lts
@@ -74,6 +99,10 @@ workflows:
       - integration-tests:
           requires:
             - ci-build
+      - e2e
+            requires:
+            - ci-build
+            - integration-tests
       - pack:
           filters:
             branches:
