@@ -73,6 +73,7 @@ workflows:
   build-and-packge:
     jobs:
       - ci-build
+      - integration-tests
       - pack:
           filters:
             branches:
