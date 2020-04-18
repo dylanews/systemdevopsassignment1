@@ -41,13 +41,12 @@ jobs:
           command: |
             npm install
             node_modules/.bin/sequelize db:migrate
-            npm start
       - run:
           name: Run integration tests
           command: |
             npm run test-integration
             mkdir -p test-output/test-integration
-      - store_test_results:
+      - store_test_output:
           path: test-output.xml
           
   pack:

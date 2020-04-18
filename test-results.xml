@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="0.5660" tests="3" failures="0">
-  <testsuite name="Root Suite" timestamp="2020-04-18T11:08:23" tests="0" time="0.0000" failures="0">
+<testsuites name="Mocha Tests" time="2.0030" tests="3" failures="1">
+  <testsuite name="Root Suite" timestamp="2020-04-18T12:38:04" tests="0" time="0.0000" failures="0">
   </testsuite>
-  <testsuite name="models/index" timestamp="2020-04-18T11:08:23" tests="2" file="C:\Users\Dylan\Desktop\assignment1devops\test\unit\index.test.js" time="0.5530" failures="0">
-    <testcase name="models/index returns the task model" time="0.5520" classname="returns the task model">
-    </testcase>
-    <testcase name="models/index returns the user model" time="0.0010" classname="returns the user model">
-    </testcase>
-  </testsuite>
-  <testsuite name="models/task" timestamp="2020-04-18T11:08:24" tests="0" file="C:\Users\Dylan\Desktop\assignment1devops\test\unit\task.test.js" time="0.0000" failures="0">
-  </testsuite>
-  <testsuite name="create" timestamp="2020-04-18T11:08:24" tests="1" file="C:\Users\Dylan\Desktop\assignment1devops\test\unit\task.test.js" time="0.0130" failures="0">
-    <testcase name="models/task create creates a task" time="0.0130" classname="creates a task">
+  <testsuite name="user creation page" timestamp="2020-04-18T12:38:04" tests="3" file="C:\Users\Dylan\Desktop\assignment1devops\test\integration\user-creation.test.js" time="2.0030" failures="1">
+    <testcase name="user creation page &quot;before all&quot; hook" time="2.0030" classname="&quot;before all&quot; hook">
+      <failure message="Timeout of 2000ms exceeded. For async tests and hooks, ensure &quot;done()&quot; is called; if returning a Promise, ensure it resolves." type="Error"><![CDATA[Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves.
+    at listOnTimeout (internal/timers.js:536:17)
+    at processTimers (internal/timers.js:480:7)]]></failure>
     </testcase>
   </testsuite>
 </testsuites>
