@@ -26,7 +26,7 @@ jobs:
           path: test-output
 
       - store_artifacts:
-          path: test-output/test-result.xml
+          path: test-output
 
   integration-tests:
     docker:
@@ -49,9 +49,8 @@ jobs:
             npm run test-integration
       - store_test_results:
           path: test-output
-
       - store_artifacts:
-          path: test-output/test-integration.xml
+          path: test-output
           
   e2e:
     docker:
@@ -72,14 +71,12 @@ jobs:
             npm install
       - run:
           name: Run e2e
-          command: |
-            npm run test-e2e
+          command: npm run test-e2e
 
       - store_test_results:
           path: test-output
-          
       - store_artifacts:
-          path: test-output/test-e2e.xml
+          path: test-output                
   pack:
     docker:
       - image: circleci/node:lts
