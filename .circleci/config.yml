@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: running reporter
+          name: installing all deps
           command: |
             cd src
             npm install
@@ -31,7 +31,7 @@ jobs:
           path: src/test-results
   pack:
     docker:
-      -image: circleci/nodelts
+      -image: circleci/node:lts
     environment:
       NODE_ENV: production
     steps:
