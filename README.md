@@ -44,23 +44,23 @@ e2e testing:
 - For e2e testing, as it is a full rundown of testing from the beginning of the software till the end, qawolf would then be used as the tool to perform the e2e testing. In the script file, there was a lack of what tool to use in the e2e-testing script, therefore, i have added the npx qawolf which would allow the qawolf tool to be used. In the production script, there was also a lack of user, passwords and host details which was then added to ensure that the database would be able to be connected. In the config.yml file for circleci, i have added the required environment and commands in order to allow the pipeline to be able to install and run the e2e testing without any trouble.
 
 SCREENSHOT OF CIRCLECI AND GITHUB:
-![screenshot](https://github.com/s3699661/systemdevopsassignment1/screenshotcircleci.png)
+![screenshot](https://github.com/s3699661/systemdevopsassignment1/blob/master/screenshotcircleci.PNG)
 
 
 MULTIPLE FAILURE SCENARIOS:
-![fail scenario 1](https://github.com/s3699661/systemdevopsassignment1/failscenario1.png)
-![fail scenario 2](https://github.com/s3699661/systemdevopsassignment1/failscenario2.png)
-![fail scenario 3](https://github.com/s3699661/systemdevopsassignment1/failscenario3.png)
-![fail scenario build 4](https://github.com/s3699661/systemdevopsassignment1/failscenariobuild4.png)
+![fail scenario 1](https://github.com/s3699661/systemdevopsassignment1/blob/master/failscenario1.PNG)
+![fail scenario 2](https://github.com/s3699661/systemdevopsassignment1/blob/master/failscenario2.PNG)
+![fail scenario 3](https://github.com/s3699661/systemdevopsassignment1/blob/master/failscenario3.PNG)
+![fail scenario build 4](https://github.com/s3699661/systemdevopsassignment1/blob/master/failscenariobuild4.PNG)
 
 INTEGRATION TEST FAIL LOG -
 - The reason behind the integrationt-test build failure is due to the missing script from the node_module as there were no node modules being used. 
-- *See console fail log in file*
+- *https://github.com/s3699661/systemdevopsassignment1/blob/master/integration%20test%20fail%20log.log*
 
 QAWOLF TEST FAIL -
 - The reason behind why the qawolf test failure is because there is no database hosted. Therefore the application was not able to test as they were not able to run the software at all.
-![qawolf fail 1](https://github.com/s3699661/systemdevopsassignment1/qawolf1.png)
-![qawolf fail 2](https://github.com/s3699661/systemdevopsassignment1/qawolf2.png)
+![qawolf fail 1](https://github.com/s3699661/systemdevopsassignment1/blob/master/qawolf1.PNG)
+![qawolf fail 2](https://github.com/s3699661/systemdevopsassignment1/blob/master/qawolf2.PNG)
 
 -# Express Example
 
