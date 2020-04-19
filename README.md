@@ -62,6 +62,8 @@ QAWOLF TEST FAIL -
 ![qawolf fail 1](https://github.com/s3699661/systemdevopsassignment1/blob/master/qawolf1.PNG)
 ![qawolf fail 2](https://github.com/s3699661/systemdevopsassignment1/blob/master/qawolf2.PNG)
 
+FINAL SUCCESS INTEGRATION ON CIRCLECI -
+![success screenshot](https://github.com/s3699661/systemdevopsassignment1/blob/master/finalintegration.PNG)
 -# Express Example
 
 This repository demonstrates the usage of Sequelize within an [Express](https://expressjs.com) application.
