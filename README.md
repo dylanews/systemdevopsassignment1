@@ -18,6 +18,12 @@ Code Coverage:
 Linting:
 - Linting is a tool that analyses source codes and to report or notify any bugs, errors, or suspicious constructs. In this program, there was a test-lint script that has been provided but there was no framework mentioned.
 
+Integration-Testing:
+- Integration testing is the phase in software testing in which the software modules are then to be combined and tested altogether as a group. It is used to evaluate the compliance of a system or component with specific functional requirements. Originally, in the script folder for integration-testing, there were no mocha reporters being mentioned. In the config.yml for circleci, there was also nothing mentioned in regards to hosting the nodes and the database.
+
+e2e testing:
+- e2e is a technique of testing that tests the entire softare product from the beginning to the end to ensure that the app runs as expected. It ensures that everything is working perfectly without any issues. In this assignment, we have used qawolf as the e2e testing tool which was lacking in the scripting folder. For the production script, there was also a lack of database details. In the config.yml for circleci file, nothing was mentioned in regards to running the scripts or database.
+
 Explanation of solution:
 Building the Docker Image:
 - As mentioned, the Docker Image is a file consisting of multiplayer layers that allows the container to execute code. I have used the Docker image and implemented it as the image for circleci. Therefore, the docker image would always be used as an image and to help execute the container and the commands mentioned.
@@ -30,6 +36,18 @@ Code Coverage:
 
 Linting:
 - As mentioned above, in the script folder there was no lint framework specified. To solve this problem, I have attached Eslint as the framework and ./ allowing it to be able to perform through the whole directory. 
+
+Integration-testing:
+- For integration-testing, I have added the mocha reporter tool in the scripting folder and have also added in the proper processing commands in the config folder. The commands would ensure that the database will run properly with proper database environment variables. The integration-test is then ran with the node database modules and then to be performed.
+
+e2e testing:
+- For e2e testing, as it is a full rundown of testing from the beginning of the software till the end, qawolf would then be used as the tool to perform the e2e testing. In the script file, there was a lack of what tool to use in the e2e-testing script, therefore, i have added the npx qawolf which would allow the qawolf tool to be used. In the production script, there was also a lack of user, passwords and host details which was then added to ensure that the database would be able to be connected. In the config.yml file for circleci, i have added the required environment and commands in order to allow the pipeline to be able to install and run the e2e testing without any trouble.
+
+INTEGRATION TEST FAIL LOG -
+- The reason behind the integrationt-test build failure is due to the missing script from the node_module as there were no node modules being used. 
+
+QAWOLF TEST FAIL -
+- The reason behind why the qawolf test failure is because there is no database hosted. Therefore the application was not able to test as they were not able to run the software at all.
 
 -# Express Example
 
@@ -68,28 +86,30 @@ Just open [http://localhost:3000](http://localhost:3000).
 
 ## Building the docker image
 
-TODO
+DONE
 
 ## Running Tests
 
+DONE
+
 ### Unit tests
+
+DONE
 
 There are [Mocha](https://mochajs.org) based unit test in the application. 
 
 ### Linting
 
-TODO: add ESLint command
+DONE
 
 ### Code coverage
 
-TODO: Add istanbul(nyc) commands
-
+DONE
 ### Integration tests
 
 Integration tests are implemented using Mocha as well. 
 
-TODO: set up integration test environment and run integration tests
-
+DONE
 
 ### End to end test
 
@@ -99,4 +119,4 @@ Set the environment variable `QAW_HEADLESS` to true to run the e2e in headless m
 
 https://www.qawolf.com/
 
-TODO: Set up e2e test environment and run the e2e tests
+DONE
